@@ -134,18 +134,18 @@ while True:
 
         else:
             if p1_nome != '':
-                print(f'Nome: (p1_nome) | Preço: R$ (p1_preco:.2f) | Estoque: (p1_estoque) unid.')
-                print(f'Validade:(p1_validade) | Descrição: (p1_descricao)')
+                print(f'Nome: {p1_nome} | Preço: R$ {p1_preco:.2f} | Estoque: {p1_estoque} unid.')
+                print(f'Validade:{p1_validade} | Descrição: {p1_descricao}')
                 print('-' * 30)
 
         if p2_nome != '':
-            print(f'Nome: (p2_nome) | Preço: R$ (p2_preco:.2f) | Estoque: (p2_estoque) unid.')
-            print(f'Validade:(p2_validade) | Descrição: (p2_descricao)')
+            print(f'Nome: {p2_nome} | Preço: R$ {p2_preco:.2f} | Estoque: {p2_estoque} unid.')
+            print(f'Validade:{p2_validade} | Descrição: {p2_descricao}')
             print('-' * 30)
 
         if p3_nome != '':
-            print(f'Nome: (p3_nome) | Preço: R$ (p3_preco:.2f) | Estoque: (p3_estoque) unid.')
-            print(f'Validade:(p3_validade) | Descrição: (p3_descricao)')
+            print(f'Nome: {p3_nome} | Preço: R$ {p3_preco:.2f} | Estoque: {p3_estoque} unid.')
+            print(f'Validade:{p3_validade} | Descrição: {p3_descricao}')
             print('-' * 30)    
 
         if p4_nome != '':
@@ -154,13 +154,9 @@ while True:
             print('-' * 30)       
 
         if p5_nome != '':
-            print(f'Nome: (p5_nome) | Preço: R$ (p5_preco:.2f) | Estoque: (p5_estoque) unid.')
-            print(f'Validade:(p5_validade) | Descrição: (p5_descricao)')
+            print(f'Nome: {p5_nome} | Preço: R$ {p5_preco:.2f} | Estoque: {p5_estoque} unid.')
+            print(f'Validade:{p5_validade} | Descrição: {p5_descricao}')
             print('-' * 30)        
-
-       
-       
-       
 
     elif opcao == '3':
         print('Opção 3 selecionada: Excluindo Produto')
