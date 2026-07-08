@@ -206,15 +206,124 @@ while True:
 
     elif opcao == '5':
         print('Opção 5 selecionada: Realizando venda...')
+        venda_nome = input('Digite o nome do produto que deseja vender: ')
+        sucesso_venda = False
+        
+        if venda_nome.lower() == p1_nome.lower() and p1_nome != "":
+            qtd = int(input(f'Quantas unidades de {p1_nome} deseja vender? '))
+            if qtd <= p1_estoque:
+                p1_estoque -= qtd
+                ultima_venda_valor = qtd * p1_preco
+                ultima_venda_produto = "vaga1"
+                ultima_venda_quantidade = qtd
+                sucesso_venda = True
+            else:
+                print(f'❌ Estoque insuficiente. Temos apenas {p1_estoque} unidades.')
+                
+        elif venda_nome.lower() == p2_nome.lower() and p2_nome != "":
+            qtd = int(input(f'Quantas unidades de {p2_nome} deseja vender? '))
+            if qtd <= p2_estoque:
+                p2_estoque -= qtd
+                ultima_venda_valor = qtd * p2_preco
+                ultima_venda_produto = "vaga2"
+                ultima_venda_quantidade = qtd
+                sucesso_venda = True
+            else:
+                print(f'❌ Estoque insuficiente. Temos apenas {p2_estoque} unidades.')
+
+        elif venda_nome.lower() == p3_nome.lower() and p3_nome != "":
+            qtd = int(input(f'Quantas unidades de {p3_nome} deseja vender? '))
+            if qtd <= p3_estoque:
+                p3_estoque -= qtd
+                ultima_venda_valor = qtd * p3_preco
+                ultima_venda_produto = "vaga3"
+                ultima_venda_quantidade = qtd
+                sucesso_venda = True
+            else:
+                print(f'❌ Estoque insuficiente. Temos apenas {p3_estoque} unidades.')
+
+        elif venda_nome.lower() == p4_nome.lower() and p4_nome != "":
+            qtd = int(input(f'Quantas unidades de {p4_nome} deseja vender? '))
+            if qtd <= p4_estoque:
+                p4_estoque -= qtd
+                ultima_venda_valor = qtd * p4_preco
+                ultima_venda_produto = "vaga4"
+                ultima_venda_quantidade = qtd
+                sucesso_venda = True
+            else:
+                print(f'❌ Estoque insuficiente. Temos apenas {p4_estoque} unidades.')
+
+        elif venda_nome.lower() == p5_nome.lower() and p5_nome != "":
+            qtd = int(input(f'Quantas unidades de {p5_nome} deseja vender? '))
+            if qtd <= p5_estoque:
+                p5_estoque -= qtd
+                ultima_venda_valor = qtd * p5_preco
+                ultima_venda_produto = "vaga5"
+                ultima_venda_quantidade = qtd
+                sucesso_venda = True
+            else:
+                print(f'❌ Estoque insuficiente. Temos apenas {p5_estoque} unidades.')
+        else:
+            print('❌ Produto indisponível ou não cadastrado.')
+
+        if sucesso_venda:
+            print(f'\n✔ Venda efetuada com sucesso! Total: R$ {ultima_venda_valor:.2f}')
 
     elif opcao == '6':
         print('Opção 6 selecionada: Suporte ao cliente')
+        print('\n----------------------------------------')
+        print('📞 SAC - Central de Ajuda da Padaria')
+        print('Para problemas com o sistema ou dúvidas na operação:')
+        print('-> Telefone: 0800-777-PADARIA')
+        print('-> E-mail: suporte@padariaprojeto.com.br')
+        print('----------------------------------------')
 
     elif opcao == '7':
         print('Opção 7 selecionada: Cancelando venda...')
+        if ultima_venda_produto == "":
+            print('⚠ Nenhuma venda foi registrada nesta sessão para ser cancelada.')
+        else:
+            confirmar = input(f'Deseja estornar a última venda de R$ {ultima_venda_valor:.2f}? (s/n): ')
+            if confirmar.lower() == 's':
+                if ultima_venda_produto == "vaga1":
+                    p1_estoque += ultima_venda_quantidade
+                elif ultima_venda_produto == "vaga2":
+                    p2_estoque += ultima_venda_quantidade
+                elif ultima_venda_produto == "vaga3":
+                    p3_estoque += ultima_venda_quantidade
+                elif ultima_venda_produto == "vaga4":
+                    p4_estoque += ultima_venda_quantidade
+                elif ultima_venda_produto == "vaga5":
+                    p5_estoque += ultima_venda_quantidade
+                
+                print(f'↩ Venda cancelada! {ultima_venda_quantidade} unidades retornaram ao estoque.')
+                ultima_venda_produto = ""
+                ultima_venda_quantidade = 0
+                ultima_venda_valor = 0.0
+            else:
+                print('Operação de cancelamento abortada.')
+
+    elif opcao == '8':
+        print('Opção 8 selecionada: Relatório Técnico / Resumo do Caixa')
+        total_itens = 0
+        for estoque in [p1_estoque, p2_estoque, p3_estoque, p4_estoque, p5_estoque]:
+            if type(estoque) == int:
+                total_itens += estoque
+        print(f'\n📦 Total de produtos em estoque geral: {total_itens} unidades.')
+        print(f'💰 Última movimentação financeira registrada: R$ {ultima_venda_valor:.2f}')
+
+    elif opcao == '9':
+        print('Opção 9 selecionada: Informações do Desenvolvedor')
+        print('\n========================================')
+        print('💻 Sistema de Controle de Padaria v1.0')
+        print('Desenvolvido como projeto pessoal prático.')
+        print('Organização do armazenamento: Memória Estática de Vagas.')
+        print('========================================')
 
     elif opcao == '0':
         print('Opção 0 selecionada: Saindo...')
+        print('Obrigado por usar o sistema da Padaria!')
+        break
 
     else:
-        print('opção inválida!')
+        print('❌ Opção inválida! Digite um número de 0 a 9.')
