@@ -187,6 +187,22 @@ while True:
 
     elif opcao == '4':
         print('Opção 4 selecionada: Pesquisando produto...')
+        if p1_nome == "" and p2_nome == "" and p3_nome == "" and p4_nome == "" and p5_nome == "":
+            print('O estoque está completamente vazio.')
+        else:
+            procurar_produto_no_estoque = input('Digite o nome do produto para procurar no estoque: ')
+            
+            if procurar_produto_no_estoque.lower() == p1_nome.lower() and p1_nome != "":
+                print(f'\n🔍 Produto encontrado na Vaga 1!')
+                print(f'Nome: {p1_nome} | Preço: R$ {p1_preco:.2f} | Estoque: {p1_estoque} unidades.')
+            elif procurar_produto_no_estoque.lower() == p2_nome.lower() and p2_nome != "":
+                print(f'\n🔍 Produto encontrado na Vaga 2!')
+                print(f'Nome: {p2_nome} | Preço: R$ {p2_preco:.2f} | Estoque: {p2_estoque} unidades.')
+            elif procurar_produto_no_estoque.lower() == p3_nome.lower() and p3_nome != "":
+                print(f'\n🔍 Produto encontrado na Vaga 3!')
+                print(f'Nome: {p3_nome} | Preço: R$ {p3_preco:.2f} | Estoque: {p3_estoque} unidades.')
+            else:
+                print('❌ Esse produto não foi encontrado no estoque.')
 
     elif opcao == '5':
         print('Opção 5 selecionada: Realizando venda...')
